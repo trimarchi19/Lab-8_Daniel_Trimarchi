@@ -5,6 +5,8 @@
  */
 package lab.pkg8_daniel_trimarchi;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author X
@@ -17,10 +19,14 @@ public class empleado {
     private empleado jefe;
     private String puesto;
     private String salario;
-
+    private ArrayList<empleado> lista_empleados=new ArrayList<>();
     public empleado() {
     }
 
+    public empleado(String nombre) {
+        this.nombre = nombre;
+    }
+    
     public empleado(String nombre, String Id_empresa, String contraseña, empleado jefe, String puesto, String salario) {
         this.nombre = nombre;
         this.Id_empresa = Id_empresa;
@@ -29,6 +35,15 @@ public class empleado {
         this.puesto = puesto;
         this.salario = salario;
     }
+
+    public empleado(String nombre, String Id_empresa, String contraseña, String puesto, String salario) {
+        this.nombre = nombre;
+        this.Id_empresa = Id_empresa;
+        this.contraseña = contraseña;
+        this.puesto = puesto;
+        this.salario = salario;
+    }
+    
 
     public String getNombre() {
         return nombre;
@@ -78,9 +93,18 @@ public class empleado {
         this.salario = salario;
     }
 
+    public ArrayList<empleado> getLista_empleados() {
+        return lista_empleados;
+    }
+
+    public void setLista_empleados(ArrayList<empleado> lista_empleados) {
+        this.lista_empleados = lista_empleados;
+    }
+    
+
     @Override
     public String toString() {
-        return "empleados{" + "nombre=" + nombre + '}';
+        return  nombre ;
     }
     
 }

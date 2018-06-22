@@ -5,7 +5,10 @@
  */
 package lab.pkg8_daniel_trimarchi;
 
+import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
@@ -37,10 +40,13 @@ public class Gerentes extends javax.swing.JFrame {
         entrar = new javax.swing.JButton();
         usuario = new javax.swing.JTextField();
         registro = new javax.swing.JDialog();
+        pop_up = new javax.swing.JPopupMenu();
+        Promover = new javax.swing.JMenuItem();
+        Despedir = new javax.swing.JMenuItem();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTree1 = new javax.swing.JTree();
+        j_empresa = new javax.swing.JTree();
         j_nombre = new javax.swing.JTextField();
         j_id = new javax.swing.JTextField();
         j_contraseña = new javax.swing.JTextField();
@@ -125,11 +131,38 @@ public class Gerentes extends javax.swing.JFrame {
             .addGap(0, 392, Short.MAX_VALUE)
         );
 
+        Promover.setText("Promover");
+        Promover.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PromoverActionPerformed(evt);
+            }
+        });
+        pop_up.add(Promover);
+
+        Despedir.setText("Despedir");
+        Despedir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DespedirActionPerformed(evt);
+            }
+        });
+        pop_up.add(Despedir);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jTabbedPane1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jTabbedPane1StateChanged(evt);
+            }
+        });
+
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
-        jTree1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
-        jScrollPane1.setViewportView(jTree1);
+        j_empresa.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        j_empresa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                j_empresaMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(j_empresa);
 
         jLabel3.setText("IdEmpresa");
 
@@ -160,7 +193,7 @@ public class Gerentes extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(856, 856, 856)
-                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -190,13 +223,12 @@ public class Gerentes extends javax.swing.JFrame {
                     .addComponent(cb_jefe, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(crear, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(139, 139, 139))))
+                        .addGap(151, 151, 151)
+                        .addComponent(crear, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(55, 55, 55))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -257,7 +289,7 @@ public class Gerentes extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 896, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -277,21 +309,135 @@ public class Gerentes extends javax.swing.JFrame {
 
     private void crearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearActionPerformed
         // TODO add your handling code here:
+        System.out.println(temp.getNombre());
         DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_jefe.getModel();
         if (cb_jefe.getSelectedIndex() > 0) {
-            if (cb_jefe.getSelectedIndex()==1&& temp.getNombre().isEmpty()) {
-                temp=new empleado(j_nombre.getText(), j_id.getText(),
-                       j_contraseña.getText(), j_Puesto.getText(), j_salario.getText());   
+            if (cb_jefe.getSelectedIndex() == 1 && temp.getNombre().equals("N")) {
+                temp = new empleado(j_nombre.getText(), j_id.getText(),
+                        j_contraseña.getText(), j_Puesto.getText(), j_salario.getText());
                 modelo.addElement(temp);
             } else {
-                empleado jefe=(empleado) modelo.getSelectedItem();
-                empleado temp1 = new empleado(j_nombre.getText(), j_id.getText(),
-                        j_contraseña.getText(),jefe, j_Puesto.getText(), j_salario.getText());
-                   modelo.addElement(temp);
+                if (modelo.getSelectedItem() instanceof empleado) {
+                    empleado jefe = (empleado) modelo.getSelectedItem();
+                    empleado temp1 = new empleado(j_nombre.getText(), j_id.getText(),
+                            j_contraseña.getText(), jefe, j_Puesto.getText(), j_salario.getText());
+                    jefe.getLista_empleados().add(temp1);
+                    modelo.addElement(temp1);
+                }
+            }
+            cb_jefe.setModel(modelo);
+            DefaultTreeModel tmodel = (DefaultTreeModel) j_empresa.getModel();
+            tmodel.setRoot(new DefaultMutableTreeNode(temp));
+            listar_no_orden(temp, (DefaultMutableTreeNode) tmodel.getRoot());
+        }
+    }//GEN-LAST:event_crearActionPerformed
+
+    private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane1StateChanged
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jTabbedPane1StateChanged
+
+    private void PromoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PromoverActionPerformed
+        // TODO add your handling code here:
+        DefaultTreeModel tmodel = (DefaultTreeModel) j_empresa.getModel();
+        Object v1
+                //EL OBJETO HACE REFERENCIA AL ULTIMO ELEMENTO SELECCIONADO
+                = j_empresa.getSelectionPath().getLastPathComponent();
+        DefaultMutableTreeNode nodo_seleccionado = (DefaultMutableTreeNode) v1;
+        System.out.println(nodo_seleccionado.getParent() == tmodel.getRoot());
+        if (!(nodo_seleccionado.getParent() == tmodel.getRoot())) {
+            DefaultMutableTreeNode padre = (DefaultMutableTreeNode) nodo_seleccionado.getParent();
+            DefaultMutableTreeNode padre2 = (DefaultMutableTreeNode) padre.getParent();
+            if (padre2.getUserObject() instanceof empleado) {
+                System.out.println("Paso");
+                empleado emp
+                        = (empleado) padre2.getUserObject();
+                empleado emp1
+                        = (empleado) nodo_seleccionado.getUserObject();
+                empleado emp2
+                        = (empleado) padre.getUserObject();
+                int cont = 0;
+                int a = 0;
+                for (empleado e : emp2.getLista_empleados()) {
+                    if (e.getNombre().equals(emp1.getNombre()) && e.getContraseña().equals(e.getContraseña())) {
+                        System.out.println("Encontrado");
+                        a = cont;
+                    }
+                    cont++;
+                }
+                emp2.getLista_empleados().remove(a);
+                emp.getLista_empleados().add(emp1);
             }
 
         }
-    }//GEN-LAST:event_crearActionPerformed
+        tmodel.setRoot(new DefaultMutableTreeNode(temp));
+        listar_no_orden(temp, (DefaultMutableTreeNode) tmodel.getRoot());
+    }//GEN-LAST:event_PromoverActionPerformed
+
+    private void j_empresaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_j_empresaMouseClicked
+        // TODO add your handling code here:
+        if (evt.isMetaDown()) {
+            int row = j_empresa.getClosestRowForLocation(evt.getX(), evt.getY());
+            //MARCA LA FILA COMO SELECCIONADO
+            j_empresa.setSelectionRow(row);
+            pop_up.show(evt.getComponent(), evt.getX(), evt.getY());
+
+        }
+    }//GEN-LAST:event_j_empresaMouseClicked
+
+    private void DespedirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DespedirActionPerformed
+        // TODO add your handling code here:
+        DefaultTreeModel tmodel = (DefaultTreeModel) j_empresa.getModel();
+        Object v1
+                //EL OBJETO HACE REFERENCIA AL ULTIMO ELEMENTO SELECCIONADO
+                = j_empresa.getSelectionPath().getLastPathComponent();
+        DefaultMutableTreeNode nodo_seleccionado = (DefaultMutableTreeNode) v1;
+        System.out.println(nodo_seleccionado.getParent() == tmodel.getRoot());
+        DefaultMutableTreeNode padre = (DefaultMutableTreeNode) nodo_seleccionado.getParent();
+        DefaultMutableTreeNode padre2 = (DefaultMutableTreeNode) padre.getParent();
+
+        empleado emp
+                = (empleado) padre2.getUserObject();
+
+        empleado emp1
+                = (empleado) nodo_seleccionado.getUserObject();
+        empleado emp2
+                = (empleado) padre.getUserObject();
+        int cont = 0;
+        int a = -1;
+        for (empleado e : emp2.getLista_empleados()) {
+            if (e.getNombre().equals(emp1.getNombre()) && e.getContraseña().equals(emp.getContraseña())) {
+                a = cont;
+                empleado asc = e;
+            }
+            cont++;
+        }
+        emp2.getLista_empleados().remove(a);
+        if (emp1.getLista_empleados().size() > 0) {
+            emp2.getLista_empleados().add(emp1.getLista_empleados().get(emp1.getLista_empleados().size() - 1));
+            int size = emp1.getLista_empleados().size();
+            int size2 = emp2.getLista_empleados().size() - 1;
+            System.out.println("HMMMMMMM");
+            ArrayList<empleado> es = new ArrayList();
+            for (int i = 0; i < size; i++) {
+
+                empleado Ascend = emp1.getLista_empleados().get(i);
+                String nombre = emp2.getLista_empleados().get(size2).getNombre();
+                String Contra = emp2.getLista_empleados().get(size2).getContraseña();
+                if (!(nombre.equals(Ascend.getNombre()) && Contra.equals(Ascend.getContraseña()))) {
+                    es.add(Ascend);
+                }
+            }
+            System.out.println(es + "HOLA");
+            for (empleado e : es) {
+                emp2.getLista_empleados().get(size2).getLista_empleados().add(e);
+            }
+
+        }
+
+        tmodel.setRoot(new DefaultMutableTreeNode(temp));
+        listar_no_orden(temp, (DefaultMutableTreeNode) tmodel.getRoot());
+    }//GEN-LAST:event_DespedirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -329,6 +475,8 @@ public class Gerentes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem Despedir;
+    private javax.swing.JMenuItem Promover;
     private javax.swing.JComboBox<String> cb_jefe;
     private javax.swing.JButton crear;
     private javax.swing.JButton entrar;
@@ -346,16 +494,57 @@ public class Gerentes extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTree jTree1;
     private javax.swing.JTextField j_Puesto;
     private javax.swing.JTextField j_contraseña;
+    private javax.swing.JTree j_empresa;
     private javax.swing.JTextField j_id;
     private javax.swing.JTextField j_nombre;
     private javax.swing.JTextField j_salario;
     private javax.swing.JPasswordField password;
+    private javax.swing.JPopupMenu pop_up;
     private javax.swing.JButton registrar;
     private javax.swing.JDialog registro;
     private javax.swing.JTextField usuario;
     // End of variables declaration//GEN-END:variables
- empleado temp = new empleado();
+ empleado temp = new empleado("N");
+
+    public void listar_no_orden(Object p_raiz, DefaultMutableTreeNode nodo) {
+        try {
+            if (p_raiz instanceof empleado) {
+                for (empleado p : ((empleado) p_raiz).getLista_empleados()) {
+                    if (p.getLista_empleados().isEmpty()) {
+                        DefaultMutableTreeNode n = new DefaultMutableTreeNode(p);
+                        nodo.add(n);
+                    } else {
+                        DefaultMutableTreeNode n = new DefaultMutableTreeNode(p);
+                        nodo.add(n);
+                        listar_no_orden(p, n);
+                    }
+                }
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void buscar_no_orden(Object p_raiz, DefaultMutableTreeNode nodo) {
+        try {
+            if (p_raiz instanceof empleado) {
+                for (empleado p : ((empleado) p_raiz).getLista_empleados()) {
+                    if (p.getLista_empleados().isEmpty()) {
+                        DefaultMutableTreeNode n = new DefaultMutableTreeNode(p);
+                        nodo.add(n);
+                    } else {
+                        DefaultMutableTreeNode n = new DefaultMutableTreeNode(p);
+                        nodo.add(n);
+                        listar_no_orden(p, n);
+                    }
+                }
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
