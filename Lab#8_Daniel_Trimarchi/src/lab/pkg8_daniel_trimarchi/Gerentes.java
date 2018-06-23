@@ -68,7 +68,6 @@ public class Gerentes extends javax.swing.JFrame {
         pass = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         mensaje = new javax.swing.JTextArea();
         mandar = new javax.swing.JButton();
@@ -76,6 +75,10 @@ public class Gerentes extends javax.swing.JFrame {
         list = new javax.swing.JList<>();
         cb_jefe1 = new javax.swing.JComboBox<>();
         jLabel13 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        combos = new javax.swing.JComboBox<>();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        area = new javax.swing.JTextArea();
 
         jLabel2.setText("Contraseña");
 
@@ -256,7 +259,7 @@ public class Gerentes extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(47, Short.MAX_VALUE)
+                .addContainerGap(72, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -299,8 +302,6 @@ public class Gerentes extends javax.swing.JFrame {
         jLabel8.setText("Contraseña");
 
         jLabel9.setText("Usuario");
-
-        jLabel12.setText("Mensaje");
 
         mensaje.setColumns(20);
         mensaje.setRows(5);
@@ -349,19 +350,14 @@ public class Gerentes extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(72, 72, 72)
                                 .addComponent(cb_jefe1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(582, 582, 582)
-                                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(204, 204, 204)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(204, 204, 204)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(52, 52, 52)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(244, 244, 244)
+                        .addGap(219, 219, 219)
                         .addComponent(mandar, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(140, 190, Short.MAX_VALUE))
+                .addGap(328, 378, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -380,10 +376,8 @@ public class Gerentes extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(51, 51, 51)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
                         .addComponent(mandar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -392,7 +386,7 @@ public class Gerentes extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
                         .addComponent(cb_jefe1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -401,10 +395,46 @@ public class Gerentes extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(101, 101, 101)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(320, Short.MAX_VALUE)))
+                    .addContainerGap(345, Short.MAX_VALUE)))
         );
 
         pane.addTab("Mensaje", jPanel2);
+
+        combos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combosActionPerformed(evt);
+            }
+        });
+
+        area.setColumns(20);
+        area.setRows(5);
+        jScrollPane4.setViewportView(area);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(combos, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(78, 78, 78)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(508, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(107, 107, 107)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(192, 192, 192)
+                        .addComponent(combos, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(114, Short.MAX_VALUE))
+        );
+
+        pane.addTab("tab3", jPanel3);
 
         getContentPane().add(pane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -452,6 +482,14 @@ public class Gerentes extends javax.swing.JFrame {
             DefaultComboBoxModel modelo1 = (DefaultComboBoxModel) cb_jefe1.getModel();
             modelo1 = modelo;
             cb_jefe1.setModel(modelo1);
+        } else if (pane.getSelectedIndex() == 2) {
+            adminEmpleados ap = new adminEmpleados("./mensajes.cbm");
+            ap.cargarArchivo();
+           DefaultComboBoxModel modelo = (DefaultComboBoxModel) combos.getModel();
+            for (Mensaje m :  ap.getListaEmpleado().get(0).getMessage()) {
+                modelo.addElement(m);
+            }
+           combos.setModel(modelo);
         }
 
     }//GEN-LAST:event_paneStateChanged
@@ -626,11 +664,31 @@ public class Gerentes extends javax.swing.JFrame {
     private void mandarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mandarActionPerformed
         // TODO add your handling code here:
         adminEmpleados ap = new adminEmpleados("./mensajes.cbm");
-        temp.getMessage().add(new Mensaje(mensaje.getText(),usua.getText()));
+        String mensajes = mensaje.getText();
+        ArrayList<String> letras = new ArrayList();
+        ArrayList<Integer> letra = new ArrayList();
+        for (int i = 0; i < mensajes.length(); i++) {
+            int cont = 0;
+            for (int j = 0; j < mensajes.length(); j++) {
+                if (mensajes.charAt(i) == mensajes.charAt(j)) {
+                    cont++;
+                }
+            }
+            letras.add(Character.toString(mensajes.charAt(i)));
+            letra.add(cont);
+        }
+        System.out.println(letras + "--" + letra);
+        temp.getMessage().add(new Mensaje(mensaje.getText(), usua.getText()));
         ap.setEmpleado(temp);
         ap.escribirArchivo();
         ap.cargarArchivo();
     }//GEN-LAST:event_mandarActionPerformed
+
+    private void combosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combosActionPerformed
+        // TODO add your handling code here:
+        DefaultComboBoxModel modelo = (DefaultComboBoxModel) combos.getModel();
+        area.setText(modelo.getSelectedItem().toString());
+    }//GEN-LAST:event_combosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -670,16 +728,17 @@ public class Gerentes extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem Despedir;
     private javax.swing.JMenuItem Promover;
+    private javax.swing.JTextArea area;
     private javax.swing.JMenuItem cambio;
     private javax.swing.JComboBox<String> cb_jefe;
     private javax.swing.JComboBox<String> cb_jefe1;
+    private javax.swing.JComboBox<String> combos;
     private javax.swing.JButton crear;
     private javax.swing.JButton entrar;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -691,9 +750,11 @@ public class Gerentes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTextField j_Puesto;
     private javax.swing.JTextField j_contraseña;
     private javax.swing.JTree j_empresa;

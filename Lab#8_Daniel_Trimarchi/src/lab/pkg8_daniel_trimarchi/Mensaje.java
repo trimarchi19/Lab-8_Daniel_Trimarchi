@@ -5,13 +5,14 @@
  */
 package lab.pkg8_daniel_trimarchi;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author X
  */
-public class Mensaje {
+public class Mensaje implements Serializable{
     private String mens;
     private ArrayList<empleado>destinatarios=new ArrayList();
     private String sender;
@@ -50,7 +51,7 @@ public class Mensaje {
 
     @Override
     public String toString() {
-        return "Mensaje{" + "mens=" + mens + '}';
+        return mens;
     }
     
 }
