@@ -47,7 +47,7 @@ public class adminEmpleados {
     }
 
 
-    public void setPersona(empleado p){
+    public void setEmpleado(empleado p){
         listaEmpleado.add(p);
     }
     public void cargarArchivo(){

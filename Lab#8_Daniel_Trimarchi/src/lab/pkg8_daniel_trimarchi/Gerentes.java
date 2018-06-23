@@ -7,6 +7,7 @@ package lab.pkg8_daniel_trimarchi;
 
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 
@@ -43,7 +44,8 @@ public class Gerentes extends javax.swing.JFrame {
         pop_up = new javax.swing.JPopupMenu();
         Promover = new javax.swing.JMenuItem();
         Despedir = new javax.swing.JMenuItem();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        cambio = new javax.swing.JMenuItem();
+        pane = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         j_empresa = new javax.swing.JTree();
@@ -62,6 +64,18 @@ public class Gerentes extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         crear = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
+        usua = new javax.swing.JTextField();
+        pass = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        mensaje = new javax.swing.JTextArea();
+        mandar = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        list = new javax.swing.JList<>();
+        cb_jefe1 = new javax.swing.JComboBox<>();
+        jLabel13 = new javax.swing.JLabel();
 
         jLabel2.setText("Contraseña");
 
@@ -147,11 +161,20 @@ public class Gerentes extends javax.swing.JFrame {
         });
         pop_up.add(Despedir);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        cambio.setText("cambio");
+        cambio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cambioActionPerformed(evt);
+            }
+        });
+        pop_up.add(cambio);
 
-        jTabbedPane1.addChangeListener(new javax.swing.event.ChangeListener() {
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        pane.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jTabbedPane1StateChanged(evt);
+                paneStateChanged(evt);
             }
         });
 
@@ -178,6 +201,7 @@ public class Gerentes extends javax.swing.JFrame {
 
         cb_jefe.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "No Tiene" }));
 
+        jLabel11.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
         jLabel11.setText("Jefe");
 
         crear.setText("Crear");
@@ -193,108 +217,196 @@ public class Gerentes extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(856, 856, 856)
-                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(8, 8, 8)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(616, 616, 616))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(j_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(j_id, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(j_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(j_Puesto, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(j_salario, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cb_jefe, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(32, 32, 32)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                .addGap(151, 151, 151)
+                                .addComponent(crear, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(23, 23, 23))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(j_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(j_id, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(j_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(j_Puesto, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(j_salario, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cb_jefe, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(151, 151, 151)
-                        .addComponent(crear, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(55, 55, 55))
+                                .addGap(34, 34, 34)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(359, 359, 359))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(47, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cb_jefe, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(17, 17, 17)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(cb_jefe, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(crear, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(36, 36, 36)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(j_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(21, 21, 21)
+                                .addComponent(j_id, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(j_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(j_Puesto, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(j_salario, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(crear, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(36, 36, 36)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(j_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(21, 21, 21)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(j_id, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(100, 100, 100)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24, 24, 24)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(j_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(j_Puesto, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(j_salario, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(25, 25, 25))
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(37, 37, 37))
         );
 
-        jTabbedPane1.addTab("Arbol", jPanel1);
+        pane.addTab("Arbol", jPanel1);
+
+        jLabel8.setText("Contraseña");
+
+        jLabel9.setText("Usuario");
+
+        jLabel12.setText("Mensaje");
+
+        mensaje.setColumns(20);
+        mensaje.setRows(5);
+        jScrollPane2.setViewportView(mensaje);
+
+        mandar.setText("SEND");
+        mandar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mandarActionPerformed(evt);
+            }
+        });
+
+        list.setModel(new DefaultListModel());
+        jScrollPane3.setViewportView(list);
+
+        cb_jefe1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "No Tiene" }));
+        cb_jefe1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_jefe1ItemStateChanged(evt);
+            }
+        });
+        cb_jefe1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb_jefe1ActionPerformed(evt);
+            }
+        });
+
+        jLabel13.setText("Mensaje");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 891, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(13, 13, 13)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(usua, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(26, 26, 26)
+                                        .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(72, 72, 72)
+                                .addComponent(cb_jefe1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(582, 582, 582)
+                                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(204, 204, 204)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(244, 244, 244)
+                        .addComponent(mandar, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(140, 190, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(463, 463, 463))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(17, 17, 17)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(1001, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 422, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(51, 51, 51)
+                        .addComponent(mandar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(usua, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(39, 39, 39)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                        .addComponent(cb_jefe1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(101, 101, 101)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(320, Short.MAX_VALUE)))
         );
 
-        jTabbedPane1.addTab("tab2", jPanel2);
+        pane.addTab("Mensaje", jPanel2);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
-        );
+        getContentPane().add(pane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -332,10 +444,17 @@ public class Gerentes extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_crearActionPerformed
 
-    private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane1StateChanged
+    private void paneStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_paneStateChanged
         // TODO add your handling code here:
+        System.out.println(pane.getSelectedIndex());
+        if (pane.getSelectedIndex() == 1) {
+            DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_jefe.getModel();
+            DefaultComboBoxModel modelo1 = (DefaultComboBoxModel) cb_jefe1.getModel();
+            modelo1 = modelo;
+            cb_jefe1.setModel(modelo1);
+        }
 
-    }//GEN-LAST:event_jTabbedPane1StateChanged
+    }//GEN-LAST:event_paneStateChanged
 
     private void PromoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PromoverActionPerformed
         // TODO add your handling code here:
@@ -345,33 +464,37 @@ public class Gerentes extends javax.swing.JFrame {
                 = j_empresa.getSelectionPath().getLastPathComponent();
         DefaultMutableTreeNode nodo_seleccionado = (DefaultMutableTreeNode) v1;
         System.out.println(nodo_seleccionado.getParent() == tmodel.getRoot());
-        if (!(nodo_seleccionado.getParent() == tmodel.getRoot())) {
-            DefaultMutableTreeNode padre = (DefaultMutableTreeNode) nodo_seleccionado.getParent();
-            DefaultMutableTreeNode padre2 = (DefaultMutableTreeNode) padre.getParent();
-            if (padre2.getUserObject() instanceof empleado) {
-                System.out.println("Paso");
-                empleado emp
-                        = (empleado) padre2.getUserObject();
-                empleado emp1
-                        = (empleado) nodo_seleccionado.getUserObject();
-                empleado emp2
-                        = (empleado) padre.getUserObject();
-                int cont = 0;
-                int a = 0;
-                for (empleado e : emp2.getLista_empleados()) {
-                    if (e.getNombre().equals(emp1.getNombre()) && e.getContraseña().equals(e.getContraseña())) {
-                        System.out.println("Encontrado");
-                        a = cont;
+        if (nodo_seleccionado.getParent() != null) {
+            if (!(nodo_seleccionado.getParent() == tmodel.getRoot() && nodo_seleccionado == tmodel.getRoot())) {
+                DefaultMutableTreeNode padre = (DefaultMutableTreeNode) nodo_seleccionado.getParent();
+                if (padre.getParent() != null) {
+                    DefaultMutableTreeNode padre2 = (DefaultMutableTreeNode) padre.getParent();
+                    if (padre2.getUserObject() instanceof empleado) {
+                        System.out.println("Paso");
+                        empleado emp
+                                = (empleado) padre2.getUserObject();
+                        empleado emp1
+                                = (empleado) nodo_seleccionado.getUserObject();
+                        empleado emp2
+                                = (empleado) padre.getUserObject();
+                        int cont = 0;
+                        int a = 0;
+                        for (empleado e : emp2.getLista_empleados()) {
+                            if (e.getNombre().equals(emp1.getNombre()) && e.getContraseña().equals(e.getContraseña())) {
+                                System.out.println("Encontrado");
+                                a = cont;
+                            }
+                            cont++;
+                        }
+                        emp2.getLista_empleados().remove(a);
+                        emp.getLista_empleados().add(emp1);
                     }
-                    cont++;
-                }
-                emp2.getLista_empleados().remove(a);
-                emp.getLista_empleados().add(emp1);
-            }
 
+                }
+                tmodel.setRoot(new DefaultMutableTreeNode(temp));
+                listar_no_orden(temp, (DefaultMutableTreeNode) tmodel.getRoot());
+            }
         }
-        tmodel.setRoot(new DefaultMutableTreeNode(temp));
-        listar_no_orden(temp, (DefaultMutableTreeNode) tmodel.getRoot());
     }//GEN-LAST:event_PromoverActionPerformed
 
     private void j_empresaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_j_empresaMouseClicked
@@ -392,52 +515,122 @@ public class Gerentes extends javax.swing.JFrame {
                 //EL OBJETO HACE REFERENCIA AL ULTIMO ELEMENTO SELECCIONADO
                 = j_empresa.getSelectionPath().getLastPathComponent();
         DefaultMutableTreeNode nodo_seleccionado = (DefaultMutableTreeNode) v1;
-        System.out.println(nodo_seleccionado.getParent() == tmodel.getRoot());
-        DefaultMutableTreeNode padre = (DefaultMutableTreeNode) nodo_seleccionado.getParent();
-        DefaultMutableTreeNode padre2 = (DefaultMutableTreeNode) padre.getParent();
-
-        empleado emp
-                = (empleado) padre2.getUserObject();
-
-        empleado emp1
-                = (empleado) nodo_seleccionado.getUserObject();
-        empleado emp2
-                = (empleado) padre.getUserObject();
-        int cont = 0;
-        int a = -1;
-        for (empleado e : emp2.getLista_empleados()) {
-            if (e.getNombre().equals(emp1.getNombre()) && e.getContraseña().equals(emp.getContraseña())) {
-                a = cont;
-                empleado asc = e;
-            }
-            cont++;
-        }
-        emp2.getLista_empleados().remove(a);
-        if (emp1.getLista_empleados().size() > 0) {
-            emp2.getLista_empleados().add(emp1.getLista_empleados().get(emp1.getLista_empleados().size() - 1));
-            int size = emp1.getLista_empleados().size();
-            int size2 = emp2.getLista_empleados().size() - 1;
-            System.out.println("HMMMMMMM");
-            ArrayList<empleado> es = new ArrayList();
-            for (int i = 0; i < size; i++) {
-
-                empleado Ascend = emp1.getLista_empleados().get(i);
-                String nombre = emp2.getLista_empleados().get(size2).getNombre();
-                String Contra = emp2.getLista_empleados().get(size2).getContraseña();
-                if (!(nombre.equals(Ascend.getNombre()) && Contra.equals(Ascend.getContraseña()))) {
-                    es.add(Ascend);
+        if (nodo_seleccionado.getParent() != null) {
+            if (!(nodo_seleccionado.getParent() == tmodel.getRoot() && nodo_seleccionado == tmodel.getRoot())) {
+                DefaultMutableTreeNode padre = (DefaultMutableTreeNode) nodo_seleccionado.getParent();
+                DefaultMutableTreeNode padre2 = (DefaultMutableTreeNode) padre.getParent();
+                empleado emp1
+                        = (empleado) nodo_seleccionado.getUserObject();
+                empleado emp2
+                        = (empleado) padre.getUserObject();
+                int cont = 0;
+                int a = -1;
+                for (empleado e : emp2.getLista_empleados()) {
+                    if (e.getNombre().equals(emp1.getNombre()) && e.getContraseña().equals(emp1.getContraseña())) {
+                        a = cont;
+                        empleado asc = e;
+                    }
+                    cont++;
                 }
-            }
-            System.out.println(es + "HOLA");
-            for (empleado e : es) {
-                emp2.getLista_empleados().get(size2).getLista_empleados().add(e);
-            }
 
+                DefaultComboBoxModel mod = (DefaultComboBoxModel) cb_jefe.getModel();
+                for (int i = 0; i < mod.getSize(); i++) {
+                    if (mod.getElementAt(i) instanceof empleado) {
+                        System.out.println("TRUE");
+                        empleado combo = (empleado) mod.getElementAt(i);
+                        if (combo.getNombre().equals(emp1.getNombre())
+                                && combo.getContraseña().equals(emp1.getContraseña())) {
+                            mod.removeElementAt(i);
+                        }
+                    }
+                }
+                emp2.getLista_empleados().remove(a);
+                if (emp1.getLista_empleados().size() > 0) {
+                    emp2.getLista_empleados().add(emp1.getLista_empleados().get(emp1.getLista_empleados().size() - 1));
+                    int size = emp1.getLista_empleados().size();
+                    int size2 = emp2.getLista_empleados().size() - 1;
+                    ArrayList<empleado> es = new ArrayList();
+                    for (int i = 0; i < size; i++) {
+                        empleado Ascend = emp1.getLista_empleados().get(i);
+                        String nombre = emp2.getLista_empleados().get(size2).getNombre();
+                        String Contra = emp2.getLista_empleados().get(size2).getContraseña();
+                        if (!(nombre.equals(Ascend.getNombre()) && Contra.equals(Ascend.getContraseña()))) {
+                            es.add(Ascend);
+                        }
+                    }
+                    for (empleado e : es) {
+                        emp2.getLista_empleados().get(size2).getLista_empleados().add(e);
+                    }
+
+                }
+
+                tmodel.setRoot(new DefaultMutableTreeNode(temp));
+                listar_no_orden(temp, (DefaultMutableTreeNode) tmodel.getRoot());
+            }
         }
-
-        tmodel.setRoot(new DefaultMutableTreeNode(temp));
-        listar_no_orden(temp, (DefaultMutableTreeNode) tmodel.getRoot());
     }//GEN-LAST:event_DespedirActionPerformed
+
+    private void cambioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambioActionPerformed
+        DefaultTreeModel tmodel = (DefaultTreeModel) j_empresa.getModel();
+        Object v1
+                //EL OBJETO HACE REFERENCIA AL ULTIMO ELEMENTO SELECCIONADO
+                = j_empresa.getSelectionPath().getLastPathComponent();
+        DefaultMutableTreeNode nodo_seleccionado = (DefaultMutableTreeNode) v1;
+        System.out.println(nodo_seleccionado.getParent() == tmodel.getRoot());
+        if (nodo_seleccionado.getParent() != null) {
+            if (!(nodo_seleccionado.getParent() == tmodel.getRoot() && nodo_seleccionado == tmodel.getRoot())) {
+                DefaultMutableTreeNode padre = (DefaultMutableTreeNode) nodo_seleccionado.getParent();
+                DefaultMutableTreeNode padre2 = (DefaultMutableTreeNode) padre.getParent();
+                if (padre2.getUserObject() instanceof empleado) {
+                    System.out.println("Paso");
+                    empleado emp
+                            = (empleado) padre2.getUserObject();
+                    empleado emp1
+                            = (empleado) nodo_seleccionado.getUserObject();
+                    empleado emp2
+                            = (empleado) padre.getUserObject();
+                    int cont = 0;
+                    int a = 0;
+                    for (empleado e : emp2.getLista_empleados()) {
+                        if (e.getNombre().equals(emp1.getNombre()) && e.getContraseña().equals(e.getContraseña())) {
+                            System.out.println("Encontrado");
+                            a = cont;
+                        }
+                        cont++;
+                    }
+                    emp2.getLista_empleados().remove(a);
+                    emp.getLista_empleados().add(emp1);
+                }
+
+            }
+            tmodel.setRoot(new DefaultMutableTreeNode(temp));
+            listar_no_orden(temp, (DefaultMutableTreeNode) tmodel.getRoot());
+        }
+    }//GEN-LAST:event_cambioActionPerformed
+
+    private void cb_jefe1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_jefe1ItemStateChanged
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_cb_jefe1ItemStateChanged
+
+    private void cb_jefe1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_jefe1ActionPerformed
+        // TODO add your handling code here:
+        DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_jefe1.getModel();
+        DefaultListModel modl = (DefaultListModel) list.getModel();
+        if (modelo.getSelectedItem() instanceof empleado) {
+            modl.addElement(modelo.getSelectedItem());
+        }
+        list.setModel(modl);
+    }//GEN-LAST:event_cb_jefe1ActionPerformed
+
+    private void mandarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mandarActionPerformed
+        // TODO add your handling code here:
+        adminEmpleados ap = new adminEmpleados("./mensajes.cbm");
+        temp.getMessage().add(new Mensaje(mensaje.getText(),usua.getText()));
+        ap.setEmpleado(temp);
+        ap.escribirArchivo();
+        ap.cargarArchivo();
+    }//GEN-LAST:event_mandarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -477,33 +670,46 @@ public class Gerentes extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem Despedir;
     private javax.swing.JMenuItem Promover;
+    private javax.swing.JMenuItem cambio;
     private javax.swing.JComboBox<String> cb_jefe;
+    private javax.swing.JComboBox<String> cb_jefe1;
     private javax.swing.JButton crear;
     private javax.swing.JButton entrar;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextField j_Puesto;
     private javax.swing.JTextField j_contraseña;
     private javax.swing.JTree j_empresa;
     private javax.swing.JTextField j_id;
     private javax.swing.JTextField j_nombre;
     private javax.swing.JTextField j_salario;
+    private javax.swing.JList<String> list;
+    private javax.swing.JButton mandar;
+    private javax.swing.JTextArea mensaje;
+    private javax.swing.JTabbedPane pane;
+    private javax.swing.JTextField pass;
     private javax.swing.JPasswordField password;
     private javax.swing.JPopupMenu pop_up;
     private javax.swing.JButton registrar;
     private javax.swing.JDialog registro;
+    private javax.swing.JTextField usua;
     private javax.swing.JTextField usuario;
     // End of variables declaration//GEN-END:variables
  empleado temp = new empleado("N");

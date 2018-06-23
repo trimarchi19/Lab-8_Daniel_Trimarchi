@@ -5,13 +5,14 @@
  */
 package lab.pkg8_daniel_trimarchi;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author X
  */
-public class empleado {
+public class empleado implements Serializable{
 
     private String nombre;
     private String Id_empresa;
@@ -20,6 +21,7 @@ public class empleado {
     private String puesto;
     private String salario;
     private ArrayList<empleado> lista_empleados=new ArrayList<>();
+    private ArrayList<Mensaje>message=new ArrayList();
     public empleado() {
     }
 
@@ -99,6 +101,14 @@ public class empleado {
 
     public void setLista_empleados(ArrayList<empleado> lista_empleados) {
         this.lista_empleados = lista_empleados;
+    }
+
+    public ArrayList<Mensaje> getMessage() {
+        return message;
+    }
+
+    public void setMessage(ArrayList<Mensaje> message) {
+        this.message = message;
     }
     
 
